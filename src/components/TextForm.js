@@ -4,7 +4,7 @@ import React,{useState} from 'react'
 export default function TextForm(props) {
 
     const handleOnChangeToUp = (event)=> {
-        console.log("CHANGED TO UP");
+        console.log("edited");
         setText(event.target.value);
     }
 
@@ -14,8 +14,14 @@ export default function TextForm(props) {
         setText(newText)
     }
 
+    const handleClearText = ()=> {
+        console.log("clearText was clicked");
+        let newText = '';
+        setText(newText)
+    }
+
     const handleLowClick = ()=> {
-        console.log("Uppercase button was clicked" + text);
+        console.log("Lowercase button was clicked" + text);
         let newText = text.toLowerCase();
         setText(newText)
     }
@@ -24,20 +30,18 @@ export default function TextForm(props) {
     <>
         <div className='container'>
         <h1>{props.heading}</h1>   
-      <div className="mb-3">
+      <div className="lb-3 ">
         <label for="myBox" className="form-label">
           Enter the garbage here..
         </label>
-        <textarea
-          className="form-control"
-          value = {text}
+        <input placeholder='Enter some text' value = {text}
           onChange={handleOnChangeToUp}
           id="myBox"
-          rows="5"
-        ></textarea>
+          rows="5"/>
       </div>
       <button className="btn btn-primary mx-2" onClick={handleUpClick}>To UpperCase</button>
       <button className="btn btn-secondary mx-2" onClick={handleLowClick}>To LowerCase</button>
+      <button className="btn btn-danger mx-2" onClick={handleClearText}>Clear</button>
     </div>
     <div className='container my-3'>
         <h2>Text Summary</h2>
