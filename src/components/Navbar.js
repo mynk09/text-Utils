@@ -38,19 +38,18 @@ export default function Navbar(props) {
             </a>
           </li>
         </ul>
-        <div className={`form-check form-switch text-${props.mode ==='light'?'dark':'light'}`}>
+        <div className={`form-check form-switch text-${props.mode ==='light'?'dark':'light'} ms-auto`}>
           <input
             className="form-check-input"
             onClick={props.toggleMode}
             type="checkbox"
             id="flexSwitchCheckDefault"
-            checked
           />
           <label className="form-check-label mx-2" htmlFor="flexSwitchCheckDefault">
             Dark Mode
           </label>
         </div>
-        <form className="form-inline my-2 my-lg-0">
+        {/* <form className="form-inline my-2 my-lg-0">
           <input
             className="form-control mr-sm-2"
             type="search"
@@ -60,7 +59,7 @@ export default function Navbar(props) {
           <button className="btn btn-outline-danger my-2 my-sm-0" type="submit">
             Search
           </button>
-        </form>
+        </form> */}
       </div>
     </nav>
   );
