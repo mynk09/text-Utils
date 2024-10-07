@@ -1,10 +1,11 @@
 import React from "react";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
-
-export default function Navbar(props) {  
+export default function Navbar(props) {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav
+      className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
+    >
       <a className="navbar-brand" href="/">
         {props.title}
       </a>
@@ -37,6 +38,18 @@ export default function Navbar(props) {
             </a>
           </li>
         </ul>
+        <div className={`form-check form-switch text-${props.mode ==='light'?'dark':'light'}`}>
+          <input
+            className="form-check-input"
+            onClick={props.toggleMode}
+            type="checkbox"
+            id="flexSwitchCheckDefault"
+            checked
+          />
+          <label className="form-check-label mx-2" htmlFor="flexSwitchCheckDefault">
+            Dark Mode
+          </label>
+        </div>
         <form className="form-inline my-2 my-lg-0">
           <input
             className="form-control mr-sm-2"
@@ -44,10 +57,7 @@ export default function Navbar(props) {
             placeholder="Search"
             aria-label="Search"
           />
-          <button
-            className="btn btn-outline-danger my-2 my-sm-0"
-            type="submit"
-          >
+          <button className="btn btn-outline-danger my-2 my-sm-0" type="submit">
             Search
           </button>
         </form>
@@ -58,6 +68,6 @@ export default function Navbar(props) {
 
 Navbar.propTypes = {
   title: PropTypes.string.isRequired,
-  about: PropTypes.string.isRequired
+  about: PropTypes.string.isRequired,
 };
 Navbar.defautProps = { title: "Some Title", about: "About Something" };
